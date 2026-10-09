@@ -1,0 +1,1315 @@
+/* =========================================================
+   CMS CALIBRATION MANAGEMENT SYSTEM
+   VERIFY PAGE CSS
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    background: #eeeeee;
+
+    color: #111111;
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.verify-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 20px;
+}
+
+
+.verify-container {
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.verify-header {
+
+    background: #ffffff;
+
+    border-left:
+        5px solid #c90000;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+}
+
+
+.verify-header small {
+
+    display: block;
+
+    color: #a00000;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 5px;
+}
+
+
+.verify-header h1 {
+
+    margin: 0 0 7px;
+
+    font-size: 25px;
+}
+
+
+.verify-header p {
+
+    margin: 0;
+
+    color: #777777;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   SEARCH FORM
+========================================================= */
+
+.verify-form {
+
+    background: #ffffff;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+}
+
+
+.verify-form label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+.verify-row {
+
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.verify-row input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    height: 43px;
+
+    padding: 10px 12px;
+
+    border:
+        1px solid #cccccc;
+
+    outline: none;
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+}
+
+
+.verify-row input:focus {
+
+    border-color: #c90000;
+}
+
+
+.verify-row button {
+
+    min-width: 110px;
+
+    height: 43px;
+
+    border: 0;
+
+    background: #c90000;
+
+    color: #ffffff;
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.verify-row button:hover {
+
+    background: #a90000;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.verify-error {
+
+    background: #ffe8e8;
+
+    border:
+        1px solid #d00000;
+
+    border-left:
+        5px solid #c90000;
+
+    color: #a00000;
+
+    padding: 14px;
+
+    margin-bottom: 15px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   VERIFIED MESSAGE
+========================================================= */
+
+.verified-message {
+
+    background: #e9f8ef;
+
+    border:
+        1px solid #58a878;
+
+    border-left:
+        5px solid #218c55;
+
+    padding: 14px 15px;
+
+    margin-bottom: 8px;
+
+    color: #287b4b;
+}
+
+
+.verified-message strong {
+
+    display: block;
+
+    font-size: 14px;
+
+    margin-bottom: 4px;
+}
+
+
+.verified-message span {
+
+    display: block;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   EXPIRATION
+========================================================= */
+
+.expiration-status {
+
+    padding: 13px 15px;
+
+    margin-bottom: 12px;
+
+    border-left: 5px solid;
+
+    background: #ffffff;
+}
+
+
+.expiration-status strong {
+
+    display: block;
+
+    font-size: 14px;
+
+    margin-bottom: 4px;
+}
+
+
+.expiration-status span {
+
+    display: block;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   VALID
+========================================================= */
+
+.status-valid {
+
+    border-color: #218c55;
+
+    color: #187341;
+
+    background: #eaf8ef;
+}
+
+
+/* =========================================================
+   EXPIRING SOON
+========================================================= */
+
+.status-soon {
+
+    border-color: #e09b00;
+
+    color: #986800;
+
+    background: #fff7dc;
+}
+
+
+/* =========================================================
+   EXPIRED
+========================================================= */
+
+.status-expired {
+
+    border-color: #c90000;
+
+    color: #a00000;
+
+    background: #ffeaea;
+}
+
+
+/* =========================================================
+   VERIFICATION POPUP
+========================================================= */
+
+.verification-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999999;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(0, 0, 0, 0.75);
+}
+
+
+.verification-overlay.show {
+
+    display: flex;
+}
+
+
+/* =========================================================
+   POPUP BOX
+========================================================= */
+
+.verification-dialog {
+
+    width: 340px;
+
+    max-width:
+        calc(100% - 40px);
+
+    padding: 30px 25px;
+
+    background: #ffffff;
+
+    border-radius: 6px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.4);
+
+    animation:
+        verificationPopup
+        0.25s ease-out;
+}
+
+
+@keyframes verificationPopup {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.9);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+}
+
+
+/* =========================================================
+   SPINNER
+========================================================= */
+
+.verification-spinner {
+
+    width: 50px;
+
+    height: 50px;
+
+    margin:
+        0 auto 18px;
+
+    border:
+        4px solid #dddddd;
+
+    border-top-color:
+        #c90000;
+
+    border-radius: 50%;
+
+    animation:
+        verifySpin
+        0.8s linear infinite;
+}
+
+
+@keyframes verifySpin {
+
+    from {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+}
+
+
+/* =========================================================
+   POPUP TEXT
+========================================================= */
+
+.verification-dialog h2 {
+
+    margin:
+        0 0 10px;
+
+    font-size: 20px;
+}
+
+
+.verification-dialog p {
+
+    margin: 0;
+
+    color: #666666;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+.verification-countdown {
+
+    margin-top: 15px;
+
+    color: #c90000;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   HIDDEN BEFORE VERIFICATION
+========================================================= */
+
+.verification-hidden {
+
+    display: none !important;
+}
+
+
+/* =========================================================
+   CERTIFICATE WRAPPER
+========================================================= */
+
+.certificate-wrapper {
+
+    display: none;
+
+    width: 100%;
+}
+
+
+.certificate-wrapper.show {
+
+    display: block;
+}
+
+
+/* =========================================================
+   PRINT BUTTON
+========================================================= */
+
+.certificate-actions {
+
+    width: 210mm;
+
+    max-width: 100%;
+
+    margin: 10px auto;
+
+    display: flex;
+
+    justify-content: flex-end;
+}
+
+
+.certificate-actions button {
+
+    border: 0;
+
+    background: #c90000;
+
+    color: #ffffff;
+
+    padding: 10px 16px;
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.certificate-actions button:hover {
+
+    background: #a90000;
+}
+
+
+/* =========================================================
+   A4 CERTIFICATE
+========================================================= */
+
+.certificate {
+
+    position: relative;
+
+    width: 210mm;
+
+    height: 297mm;
+
+    margin: 10mm auto;
+
+    padding: 6mm;
+
+    background: #ffffff;
+
+    border:
+        1px solid #111111;
+
+    overflow: hidden;
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   COMPANY HEADER
+========================================================= */
+
+.company-header {
+
+    border:
+        1.5px solid #111111;
+}
+
+
+.company-name {
+
+    height: 20mm;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    font-size: 23px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+.company-contact {
+
+    min-height: 8mm;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 3px 6px;
+
+    background: #dceeff;
+
+    border-top:
+        1.5px solid #111111;
+
+    font-size: 11px;
+
+    text-align: center;
+
+    line-height: 1.2;
+}
+
+
+.contact-divider {
+
+    margin: 0 5px;
+}
+
+
+/* =========================================================
+   SECTION BANNER
+========================================================= */
+
+.section-banner {
+
+    height: 7mm;
+
+    margin-top: 2mm;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #fff000;
+
+    border:
+        1.5px solid #111111;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   INFORMATION BOX
+========================================================= */
+
+.info-box {
+
+    border-left:
+        1.5px solid #111111;
+
+    border-right:
+        1.5px solid #111111;
+
+    border-bottom:
+        1.5px solid #111111;
+}
+
+
+.two-column {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+}
+
+
+.info-column {
+
+    min-height: 18mm;
+
+    padding: 5px 7px;
+}
+
+
+.info-column + .info-column {
+
+    border-left:
+        1.5px solid #111111;
+}
+
+
+.info-column p {
+
+    margin:
+        0 0 5px;
+
+    font-size: 10px;
+
+    line-height: 1.25;
+}
+
+
+.info-column p:last-child {
+
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   CALIBRATION TABLE
+========================================================= */
+
+.calibration-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+
+    font-size: 9px;
+}
+
+
+.calibration-table th,
+.calibration-table td {
+
+    border:
+        1.5px solid #111111;
+
+    padding: 2px 2px;
+
+    text-align: center;
+
+    vertical-align: middle;
+}
+
+
+.calibration-table th {
+
+    height: 9mm;
+
+    background: #eeeeee;
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    line-height: 1.05;
+}
+
+
+.calibration-table td {
+
+    height: 5.5mm;
+
+    font-size: 9px;
+
+    line-height: 1.1;
+}
+
+
+/* =========================================================
+   CERTIFICATE NOTE
+========================================================= */
+
+.certificate-note {
+
+    margin-top: 2mm;
+
+    padding: 4px 6px;
+
+    border:
+        1.5px solid #111111;
+
+    font-size: 8.5px;
+
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   SIGNATURE SECTION
+========================================================= */
+
+.signature-section {
+
+    margin-top: 2mm;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    min-height: 28mm;
+
+    border:
+        1.5px solid #111111;
+}
+
+
+.signature-column {
+
+    padding: 5px 7px;
+}
+
+
+.signature-column + .signature-column {
+
+    border-left:
+        1.5px solid #111111;
+}
+
+
+.signature-column h3 {
+
+    margin:
+        0 0 6px;
+
+    font-size: 10px;
+
+    font-weight: bold;
+}
+
+
+.signature-column p {
+
+    margin:
+        4px 0;
+
+    font-size: 8.5px;
+
+    line-height: 1.1;
+}
+
+
+/* =========================================================
+   QR BOTTOM AREA
+========================================================= */
+
+.qr-bottom {
+
+    position: relative;
+
+    height: 28mm;
+
+    border-left:
+        1.5px solid #111111;
+
+    border-right:
+        1.5px solid #111111;
+
+    border-bottom:
+        1.5px solid #111111;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   QR LABEL
+========================================================= */
+
+.qr-label {
+
+    position: absolute;
+
+    right: 31mm;
+
+    bottom: 12mm;
+
+    font-size: 7px;
+
+    font-weight: bold;
+
+    color: #555555;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   QR CODE
+========================================================= */
+
+.qr-code {
+
+    position: absolute;
+
+    right: 3mm;
+
+    bottom: 2.5mm;
+
+    width: 24mm;
+
+    height: 24mm;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+
+.qr-code img {
+
+    display: block;
+
+    width: 24mm !important;
+
+    height: 24mm !important;
+
+    max-width: 24mm !important;
+
+    max-height: 24mm !important;
+}
+
+
+.qr-code canvas {
+
+    display: block;
+
+    width: 24mm !important;
+
+    height: 24mm !important;
+
+    max-width: 24mm !important;
+
+    max-height: 24mm !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 800px) {
+
+    .verify-page {
+
+        padding: 10px;
+    }
+
+
+    .verify-header {
+
+        padding: 15px;
+    }
+
+
+    .verify-header h1 {
+
+        font-size: 22px;
+    }
+
+
+    .verify-form {
+
+        padding: 15px;
+    }
+
+
+    .verify-row {
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    .verify-row input {
+
+        width: 100%;
+    }
+
+
+    .verify-row button {
+
+        width: 100%;
+
+        height: 43px;
+    }
+
+
+    /*
+     * Keep A4 certificate at its
+     * real size so the certificate
+     * does not get distorted.
+     */
+
+    .certificate-wrapper {
+
+        width: 210mm;
+
+        margin-left: 50%;
+
+        transform:
+            translateX(-50%);
+    }
+
+
+    .certificate-actions {
+
+        width: 100%;
+
+        justify-content: flex-end;
+    }
+
+
+    .verification-dialog {
+
+        width: 320px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media screen and (max-width: 500px) {
+
+    .verification-dialog {
+
+        width: 300px;
+
+        padding: 25px 20px;
+    }
+
+
+    .verification-dialog h2 {
+
+        font-size: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+    @page {
+
+        size: A4 portrait;
+
+        margin: 0;
+    }
+
+
+    html,
+    body {
+
+        width: 210mm;
+
+        height: 297mm;
+
+        margin: 0;
+
+        padding: 0;
+
+        background: #ffffff;
+    }
+
+
+    .verify-page {
+
+        padding: 0;
+
+        margin: 0;
+    }
+
+
+    .verify-container {
+
+        max-width: none;
+
+        width: 210mm;
+
+        margin: 0;
+    }
+
+
+    .verify-header,
+    .verify-form,
+    .verified-message,
+    .expiration-status,
+    .certificate-actions,
+    .verify-error,
+    .verification-overlay {
+
+        display: none !important;
+    }
+
+
+    .certificate-wrapper {
+
+        display: block !important;
+
+        width: 210mm;
+
+        margin: 0;
+
+        transform: none !important;
+    }
+
+
+    .certificate {
+
+        width: 210mm;
+
+        height: 297mm;
+
+        min-height: 297mm;
+
+        margin: 0;
+
+        padding: 6mm;
+
+        border: 0;
+
+        overflow: hidden;
+
+        box-shadow: none;
+
+        page-break-after: avoid;
+
+        page-break-inside: avoid;
+    }
+
+
+    .section-banner {
+
+        background: #fff000 !important;
+
+        -webkit-print-color-adjust:
+            exact;
+
+        print-color-adjust:
+            exact;
+    }
+
+
+    .company-contact {
+
+        background: #dceeff !important;
+
+        -webkit-print-color-adjust:
+            exact;
+
+        print-color-adjust:
+            exact;
+    }
+
+
+    .calibration-table th {
+
+        background: #eeeeee !important;
+
+        -webkit-print-color-adjust:
+            exact;
+
+        print-color-adjust:
+            exact;
+    }
+
+
+    .qr-bottom {
+
+        overflow: hidden;
+    }
+
+
+    .qr-code {
+
+        right: 3mm;
+
+        bottom: 2.5mm;
+
+        width: 24mm;
+
+        height: 24mm;
+
+        overflow: hidden;
+    }
+
+
+    .qr-code img,
+    .qr-code canvas {
+
+        width: 24mm !important;
+
+        height: 24mm !important;
+    }
+
+
+    * {
+
+        break-inside: avoid;
+    }
+}
+
+/* =========================================================
+   VERIFIED UPLOADED SIGNATURES + STAMP
+========================================================= */
+
+.verify-signature-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 13mm;
+}
+
+.verify-uploaded-signature {
+    display: inline-block;
+    width: auto;
+    max-width: 42mm;
+    max-height: 12mm;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.qr-bottom {
+    position: relative;
+}
+
+.verify-stamp {
+    position: absolute;
+    left: 4mm;
+    bottom: 3mm;
+    width: 52mm;
+    height: 22mm;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    font-size: 7px;
+    font-weight: bold;
+    color: #777;
+}
+
+.verify-uploaded-stamp {
+    display: block;
+    width: auto;
+    max-width: 50mm;
+    max-height: 20mm;
+    object-fit: contain;
+}

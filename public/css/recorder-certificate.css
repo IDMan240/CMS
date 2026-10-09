@@ -1,0 +1,439 @@
+
+/* =========================================================
+   CMS RECORDER CERTIFICATE
+   V6 — MATCHES THE GAUGE CERTIFICATE STYLE
+========================================================= */
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #eeeeee;
+    color: #111111;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+/* =========================================================
+   ACTIONS — OUTSIDE THE CERTIFICATE
+========================================================= */
+
+.print-actions {
+    width: 210mm;
+    margin: 8px auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.print-actions button,
+.print-actions a {
+    padding: 9px 14px;
+    border: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.print-actions button {
+    background: #111111;
+    color: #ffffff;
+}
+
+.print-actions a {
+    background: #111111;
+    color: #ffffff;
+}
+
+/* =========================================================
+   A4 CERTIFICATE
+========================================================= */
+
+.certificate {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    padding: 7mm 8mm 5mm;
+    background: #ffffff;
+    border: 1px solid #111111;
+    overflow: hidden;
+    font-size: 13px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.company-header {
+    border: 1.5px solid #111111;
+    border-bottom: 0;
+}
+
+.company-name {
+    height: 21mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1mm 8mm;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.company-name img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 19mm;
+    object-fit: contain;
+}
+
+.blue-bar {
+    height: 6mm;
+    background: #4f86c6;
+    border: 1.5px solid #111111;
+}
+
+/* =========================================================
+   SECTION BANNERS
+========================================================= */
+
+.section-banner {
+    height: 6.5mm;
+    margin-top: 1.2mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 4px;
+    background: #fff000;
+    border: 1.5px solid #111111;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+}
+
+/* =========================================================
+   INFORMATION BOXES
+========================================================= */
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.info-box {
+    border-left: 1.5px solid #111111;
+    border-right: 1.5px solid #111111;
+    border-bottom: 1.5px solid #111111;
+}
+
+.info-column {
+    padding: 3px 6px;
+    min-height: 15mm;
+}
+
+.info-column + .info-column {
+    border-left: 1.5px solid #111111;
+}
+
+.info-column p {
+    margin: 0 0 3px;
+    font-size: 12px;
+    line-height: 1.12;
+}
+
+.info-column p:last-child {
+    margin-bottom: 0;
+}
+
+.certificate-info-box .info-column {
+    min-height: 15mm;
+}
+
+.instrument-info-box .info-column {
+    min-height: 22mm;
+}
+
+.equipment-info-box .info-column {
+    min-height: 32mm;
+}
+
+.equipment-info-box .info-column p {
+    font-size: 11.5px;
+    margin-bottom: 2.5px;
+}
+
+/* =========================================================
+   TABLES
+========================================================= */
+
+.calibration-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+}
+
+.calibration-table th,
+.calibration-table td {
+    border: 1.5px solid #111111;
+    padding: 2px 2px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.calibration-table th {
+    height: 11mm;
+    background: #eeeeee;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 1.03;
+}
+
+.calibration-table td {
+    height: 5.3mm;
+    font-size: 11px;
+    line-height: 1.05;
+}
+
+.calibration-table th:nth-child(1),
+.calibration-table td:nth-child(1) { width: 10%; }
+
+.calibration-table th:nth-child(2),
+.calibration-table td:nth-child(2) { width: 16%; }
+
+.calibration-table th:nth-child(3),
+.calibration-table td:nth-child(3) { width: 20%; }
+
+.calibration-table th:nth-child(4),
+.calibration-table td:nth-child(4) { width: 20%; }
+
+.calibration-table th:nth-child(5),
+.calibration-table td:nth-child(5) { width: 14%; }
+
+.calibration-table th:nth-child(6),
+.calibration-table td:nth-child(6) { width: 20%; }
+
+/* =========================================================
+   STATEMENT
+========================================================= */
+
+.certificate-note {
+    margin-top: 1.2mm;
+    padding: 3px 5px;
+    border: 1.5px solid #111111;
+    font-size: 11px;
+    line-height: 1.18;
+    text-align: justify;
+}
+
+/* =========================================================
+   SIGNATURES — SAME STYLE AS GAUGE
+========================================================= */
+
+.signature-section {
+    margin-top: 0.6mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 29mm;
+    border: 1.5px solid #111111;
+}
+
+.signature-column {
+    padding: 5px 7px;
+    position: relative;
+}
+
+.signature-column + .signature-column {
+    border-left: 1.5px solid #111111;
+}
+
+.signature-column h3 {
+    margin: 0 0 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.signature-column p {
+    margin: 3px 0;
+    font-size: 11px;
+    line-height: 1.1;
+}
+
+.signature-row {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    min-height: 8mm;
+}
+
+.uploaded-signature {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    max-width: 42mm;
+    max-height: 12mm;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.signature-line {
+    display: inline-block;
+    width: 40mm;
+    border-bottom: 1px solid #111111;
+    height: 6mm;
+}
+
+/* =========================================================
+   STAMP + QR
+   BELOW SIGNATURES — SAME AS GAUGE
+========================================================= */
+
+.bottom-certification-area {
+    position: relative;
+    width: 100%;
+    height: 27mm;
+    margin-top: 0;
+    border-left: 1.5px solid #111111;
+    border-right: 1.5px solid #111111;
+    border-bottom: 1.5px solid #111111;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.stamp-section {
+    position: absolute;
+    left: 50%;
+    bottom: 1mm;
+    transform: translateX(-50%);
+    width: 58mm;
+    height: 25mm;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.uploaded-stamp {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 54mm;
+    max-height: 24mm;
+    object-fit: contain;
+    object-position: center bottom;
+}
+
+.qr-section {
+    position: absolute;
+    right: 4mm;
+    bottom: 2mm;
+    width: 25mm;
+    height: 25mm;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.qr-code {
+    width: 24mm;
+    height: 24mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-code img,
+.qr-code canvas {
+    width: 24mm !important;
+    height: 24mm !important;
+    display: block;
+}
+
+/* =========================================================
+   MOBILE — KEEP A4 PROPORTIONS LIKE GAUGE
+========================================================= */
+
+@media screen and (max-width: 800px) {
+    body {
+        background: #eeeeee;
+        overflow-x: auto;
+    }
+
+    .print-actions {
+        width: 210mm;
+        margin: 8px auto;
+        justify-content: flex-end;
+    }
+
+    .certificate {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto 15px;
+    }
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 0;
+    }
+
+    html,
+    body {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+    }
+
+    .print-actions {
+        display: none !important;
+    }
+
+    .certificate {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        padding: 7mm 8mm 5mm;
+        border: 0;
+        overflow: hidden;
+        box-shadow: none;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+
+    .blue-bar,
+    .section-banner,
+    .calibration-table th {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .blue-bar {
+        background: #4f86c6 !important;
+    }
+
+    .section-banner {
+        background: #fff000 !important;
+    }
+
+    .calibration-table th {
+        background: #eeeeee !important;
+    }
+
+    * {
+        break-inside: avoid;
+    }
+}

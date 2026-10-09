@@ -1,0 +1,747 @@
+/* =========================================================
+   CMS GAUGE CALIBRATION
+   FILE 10B
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f5f5f5;
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.topbar {
+    min-height: 76px;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    background: #fff;
+    border-bottom: 4px solid #c90000;
+}
+
+.back-button {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    color: #111;
+    background: #fff;
+
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 3px solid #c90000;
+    border-radius: 50%;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.brand strong {
+    display: block;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.brand small {
+    display: block;
+    margin-top: 2px;
+
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.user-area {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.user-info strong {
+    display: block;
+    font-size: 14px;
+}
+
+.user-info small {
+    display: block;
+    margin-top: 3px;
+
+    color: #c90000;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.logout {
+    padding: 14px 22px;
+
+    background: #c90000;
+    color: #fff;
+
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+
+    border-radius: 2px;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+    padding: 25px 22px 45px;
+}
+
+.page-heading {
+    margin-bottom: 20px;
+}
+
+.page-heading > span {
+    color: #c90000;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.page-heading h1 {
+    margin: 5px 0;
+
+    font-size: 32px;
+}
+
+.page-heading p {
+    margin: 0;
+    color: #666;
+}
+
+
+/* =========================================
+   SECTION
+========================================= */
+
+.section-card {
+    margin-bottom: 10px;
+
+    padding: 12px;
+
+    background: #fff;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+.section-number {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.section-title h2 {
+    margin: 0;
+
+    font-size: 17px;
+}
+
+.section-title p {
+    margin: 3px 0 0;
+
+    color: #666;
+    font-size: 11px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+.equipment-grid {
+    grid-template-columns:
+        repeat(4, 1fr);
+}
+
+.field label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    height: 38px;
+
+    padding: 7px 9px;
+
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+    background: #fff;
+
+    color: #111;
+
+    font-size: 12px;
+}
+
+.field input:focus,
+.field select:focus {
+    outline: none;
+    border-color: #c90000;
+}
+
+
+/* =========================================
+   CALIBRATION TABLE
+========================================= */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.calibration-table {
+    width: 100%;
+
+    table-layout: fixed;
+
+    border-collapse: collapse;
+
+    min-width: 650px;
+}
+
+.calibration-table th {
+    height: 43px;
+
+    padding: 5px 4px;
+
+    background: #111;
+    color: #fff;
+
+    border-right: 1px solid #333;
+
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+.calibration-table td {
+    height: 38px;
+
+    padding: 4px;
+
+    border: 1px solid #ddd;
+
+    text-align: center;
+    vertical-align: middle;
+
+    font-size: 11px;
+}
+
+/*
+   Equal cell sizes
+*/
+
+.calibration-table th,
+.calibration-table td {
+    width: 20%;
+}
+
+.calibration-table td:first-child {
+    color: #c90000;
+    font-weight: bold;
+}
+
+.actual-value {
+    font-weight: bold;
+}
+
+.unit-label {
+    font-size: 10px;
+}
+
+.reading-input {
+    width: 90%;
+    height: 28px;
+
+    padding: 3px 4px;
+
+    border: 1px solid #ccc;
+
+    text-align: center;
+
+    font-size: 11px;
+}
+
+.reading-input:focus {
+    outline: none;
+    border-color: #c90000;
+}
+
+.error-value {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.zero-error {
+    color: #111;
+}
+
+.has-error {
+    color: #c90000;
+}
+
+.reading-input.invalid {
+    background: #ffe2e2;
+    border-color: #c90000;
+}
+
+
+/* =========================================
+   SIGNATURES
+========================================= */
+
+.signature-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+}
+
+.signature-fields {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+}
+
+.signature-fields .full {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.actions {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1.2fr;
+
+    gap: 15px;
+
+    margin-top: 5px;
+}
+
+.btn {
+    min-height: 48px;
+
+    border: 1px solid #111;
+
+    cursor: pointer;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    transition: .2s;
+}
+
+.btn span {
+    margin-right: 8px;
+}
+
+.calculate {
+    background: #d00000;
+    color: #fff;
+    border-color: #d00000;
+}
+
+.clear {
+    background: #fff;
+    color: #111;
+}
+
+.save {
+    background: #111;
+    color: #fff;
+}
+
+.btn:hover {
+    opacity: .88;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status {
+    margin-top: 12px;
+
+    padding: 10px;
+
+    border-left: 5px solid #169447;
+
+    background: #fff;
+
+    color: #16843f;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.status.warning {
+    border-left-color: #c90000;
+    color: #c90000;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .topbar {
+        padding: 0 12px;
+    }
+
+    .brand small {
+        font-size: 7px;
+    }
+
+    .user-info {
+        display: none;
+    }
+
+    .page-container {
+        padding: 18px 10px 35px;
+    }
+
+    .page-heading h1 {
+        font-size: 25px;
+    }
+
+    .form-grid,
+    .equipment-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .signature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .actions {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 500px) {
+
+    .topbar {
+        min-height: 65px;
+    }
+
+    .back-button {
+        width: 35px;
+        height: 35px;
+    }
+
+    .logo {
+        width: 42px;
+        height: 42px;
+        font-size: 11px;
+    }
+
+    .brand strong {
+        font-size: 18px;
+    }
+
+    .brand small {
+        font-size: 6px;
+    }
+
+    .logout {
+        padding: 10px 12px;
+        font-size: 9px;
+    }
+
+    .form-grid,
+    .equipment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-card {
+        padding: 9px;
+    }
+
+    .section-number {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
+    }
+
+    .section-title h2 {
+        font-size: 14px;
+    }
+
+    .section-title p {
+        font-size: 9px;
+    }
+
+    .calibration-table {
+        min-width: 620px;
+    }
+
+    .calibration-table th {
+        height: 38px;
+        font-size: 9px;
+    }
+
+    .calibration-table td {
+        height: 34px;
+        font-size: 9px;
+        padding: 3px;
+    }
+
+    .reading-input {
+        width: 92%;
+        height: 26px;
+        font-size: 9px;
+    }
+
+    .error-value {
+        font-size: 9px;
+    }
+
+}
+
+/* SIGNATURE UPLOAD */
+.signature-upload-field input[type="file"]{width:100%;padding:9px;border:1px solid #d6dbe3;border-radius:7px;background:#fff;font-size:12px}.upload-help{display:block;margin-top:5px;color:#6b7280;font-size:10px}.signature-preview-wrap{margin-top:9px;padding:8px;border:1px dashed #b8c0cc;border-radius:7px;background:#fafafa}.signature-preview{display:block;max-width:220px;max-height:80px;object-fit:contain;background:#fff}.remove-signature{margin-top:7px;border:0;border-radius:5px;padding:6px 10px;background:#b91c1c;color:#fff;font-size:10px;cursor:pointer}
+
+
+/* =========================================================
+   COMPANY / CALIBRATION STAMP UPLOAD
+========================================================= */
+
+.stamp-upload-card {
+    margin-top: 10px;
+}
+
+.stamp-upload-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stamp-upload-field label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.stamp-upload-field input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d2d2d2;
+    background: #fff;
+}
+
+.stamp-preview-wrap {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px dashed #999;
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.stamp-preview {
+    width: auto;
+    max-width: 180px;
+    max-height: 100px;
+    object-fit: contain;
+    display: block;
+}
+
+/* =========================================================
+   DUPLICATE CERTIFICATE MODAL
+========================================================= */
+#duplicateCertificateModal {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.68);
+    backdrop-filter: blur(4px);
+}
+
+.cms-modal-open {
+    overflow: hidden;
+}
+
+.cms-duplicate-modal {
+    width: min(100%, 460px);
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px 24px 24px;
+    text-align: center;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .28);
+    animation: cmsDuplicatePop .18s ease-out;
+}
+
+.cms-duplicate-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff1f0;
+    color: #c62828;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.cms-duplicate-modal h2 {
+    margin: 0 0 14px;
+    color: #b42318;
+    font-size: 20px;
+    line-height: 1.25;
+}
+
+.cms-duplicate-modal p {
+    margin: 8px 0;
+    color: #475467;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.cms-duplicate-modal .cms-duplicate-number {
+    margin: 14px 0;
+    padding: 12px;
+    border-radius: 10px;
+    background: #f8fafc;
+    color: #111827;
+    word-break: break-word;
+}
+
+.cms-duplicate-modal button {
+    width: 100%;
+    margin-top: 18px;
+    min-height: 48px;
+    border: 0;
+    border-radius: 10px;
+    background: #111827;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.cms-duplicate-modal button:active {
+    transform: translateY(1px);
+}
+
+@keyframes cmsDuplicatePop {
+    from { opacity: 0; transform: scale(.94) translateY(8px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}

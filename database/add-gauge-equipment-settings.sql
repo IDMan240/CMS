@@ -1,0 +1,3 @@
+USE calibration_management;
+CREATE TABLE IF NOT EXISTS gauge_equipment_settings (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, equipment_name VARCHAR(255) NOT NULL DEFAULT '', equipment_range VARCHAR(255) NOT NULL DEFAULT '', equipment_serial VARCHAR(255) NOT NULL DEFAULT '', equipment_calibration_date DATE NULL, equipment_due_date DATE NULL, equipment_qty VARCHAR(100) NOT NULL DEFAULT '', equipment_certification_no VARCHAR(255) NOT NULL DEFAULT '', updated_by INT UNSIGNED NULL, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO gauge_equipment_settings (id,equipment_name,equipment_range) VALUES (1,'DEADWEIGHT TESTER','20-10000 PSI') ON DUPLICATE KEY UPDATE id=id;

@@ -1,0 +1,20 @@
+<?php
+session_start();
+if (!isset($_SESSION["user_id"])) { header("Location: login.php"); exit; }
+if (($_SESSION["role"] ?? "technician") !== "admin") { http_response_code(403); exit("Access denied. Administrator access is required."); }
+require_once __DIR__ . "/../config/database.php";
+$pdo->exec("CREATE TABLE IF NOT EXISTS nuprc_settings (id INT UNSIGNED PRIMARY KEY, nuprc VARCHAR(255) NOT NULL DEFAULT '', updated_by INT UNSIGNED NULL, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+$pdo->exec("INSERT INTO nuprc_settings (id, nuprc) VALUES (1, '') ON DUPLICATE KEY UPDATE id=id");
+$msg=''; $err='';
+if ($_SERVER['REQUEST_METHOD']==='POST') {
+    $nuprc = trim((string)($_POST['nuprc'] ?? ''));
+    if ($nuprc==='') { $err='NUPRC / OGISP number is required.'; }
+    else {
+        $s=$pdo->prepare("UPDATE nuprc_settings SET nuprc=?, updated_by=? WHERE id=1");
+        $s->execute([$nuprc,(int)$_SESSION['user_id']]);
+        $msg='NUPRC / OGISP UPDATED SUCCESSFULLY. New certificates will use this value.';
+    }
+}
+$r=$pdo->query("SELECT * FROM nuprc_settings WHERE id=1")->fetch(PDO::FETCH_ASSOC) ?: [];
+?>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CMS | NUPRC Settings</title><style>*{box-sizing:border-box}body{margin:0;background:#f4f6f9;color:#111;font-family:Arial,Helvetica,sans-serif}.wrap{max-width:760px;margin:35px auto;padding:20px}.back{display:inline-block;margin-bottom:18px;color:#111;text-decoration:none;font-size:12px;font-weight:bold}.heading span{font-size:9px;color:#c90000;letter-spacing:2px;font-weight:bold}.heading h1{margin:7px 0;font-size:30px}.heading p{color:#666;font-size:12px;line-height:1.6}.notice{background:#fff8d9;border-left:4px solid #d6b400;padding:14px;margin:20px 0;font-size:11px;line-height:1.6}.ok{background:#e8f8ee;border-left:4px solid #08752f;color:#075b28;padding:14px;margin:15px 0;font-size:11px}.err{background:#ffeaea;border-left:4px solid #c90000;color:#a00000;padding:14px;margin:15px 0;font-size:11px}.card{background:#fff;border:1px solid #ddd;border-top:5px solid #c90000;padding:25px;box-shadow:0 8px 25px rgba(0,0,0,.06)}label{display:block;font-size:10px;font-weight:bold;text-transform:uppercase;margin-bottom:7px}.field input{width:100%;padding:14px;border:1px solid #ccc;background:#fafafa;font-size:14px}.btn{margin-top:18px;padding:13px 20px;border:0;background:#c90000;color:#fff;font-weight:bold;font-size:10px;cursor:pointer}.small{margin-top:12px;color:#777;font-size:9px}@media(max-width:600px){.wrap{margin:15px auto;padding:15px}.heading h1{font-size:24px}}</style></head><body><main class="wrap"><a class="back" href="dashboard.php">← DASHBOARD</a><div class="heading"><span>ADMINISTRATOR CONTROL</span><h1>NUPRC / OGISP Settings</h1><p>This value is controlled centrally by the administrator and is automatically applied to newly created Gauge and Recorder certificates.</p></div><?php if($msg):?><div class="ok">✓ <?=htmlspecialchars($msg)?></div><?php endif;?><?php if($err):?><div class="err">⚠ <?=htmlspecialchars($err)?></div><?php endif;?><div class="notice"><strong>ADMIN ONLY:</strong> Technicians cannot change this value from the Gauge or Recorder certificate forms. Existing certificates keep the NUPRC value saved when they were created.</div><section class="card"><form method="post"><div class="field"><label>NUPRC / OGISP Number</label><input name="nuprc" value="<?=htmlspecialchars($r['nuprc']??'')?>" placeholder="Enter NUPRC / OGISP number" required></div><button class="btn" type="submit">SAVE NUPRC / OGISP</button><div class="small">Last updated: <?=htmlspecialchars($r['updated_at']??'Not yet updated')?></div></form></section></main></body></html>
